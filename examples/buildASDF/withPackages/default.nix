@@ -3,13 +3,14 @@
 }:
 
 let
+  lisp = pkgs.sbcl;
   lib = pkgs.lib;
   example = lisp-utils.buildASDF {
     pname = "example";
     version = "dev";
     src = lib.cleanSource ./.;
-    lisp = pkgs.sbcl;
+    inherit lisp;
   };
 in
 
-pkgs.sbcl.withPackages (ps: [ example ])
+lisp.withPackages (ps: [ example ])
