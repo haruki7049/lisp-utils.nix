@@ -14,7 +14,7 @@
       inherit system;
     };
 
-    # { for-sbcl = example-sbcl-dev; for-clisp = example-clisp-dev; }
+    # { for-sbcl = example-dev-sbcl; for-clisp = example-dev-clisp; }
     example = lisp-utils.eachLisp [ pkgs.clisp pkgs.sbcl ] (lisp: lisp-utils.buildASDF {
       pname = "example";
       version = "dev";
@@ -36,7 +36,7 @@
 ```
 
 ```nix
-# This nix expression returns a drv named "example-sbcl-0.1.0"
+# This nix expression returns a drv named "example-0.1.0-sbcl"
 { pkgs, lisp-utils }:
 
 liso-utils.buildASDF {
